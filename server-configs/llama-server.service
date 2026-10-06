@@ -1,0 +1,16 @@
+[Unit]
+Description=Llama.cpp Server
+After=network.target
+
+[Service]
+Type=simple
+User=k1r1net
+WorkingDirectory=/home/k1r1net/llama.cpp
+LimitMEMLOCK=infinity
+EnvironmentFile = /home/k1r1net/.env
+ExecStart=/home/k1r1net/llama.cpp/build/bin/llama-server --models-preset /home/k1r1net/models.ini --models-max 1 --host 0.0.0.0 --port 8080 --api-key ${LLAMA_API_KEY}
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

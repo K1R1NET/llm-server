@@ -1,0 +1,13 @@
+[Unit]
+Description = Power Management API (Server & Open WebUI)
+After = network.target
+
+[Service]
+Type = simple
+User = root
+EnvironmentFile=/home/k1r1net/.env
+ExecStart = /usr/bin/python3 /home/k1r1net/power-mgmt/power-mgmt.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
